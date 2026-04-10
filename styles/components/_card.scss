@@ -1,1 +1,124 @@
 @use '../abstracts' as *;
+
+.articleCard {
+	background: white;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	border-radius: 0.625rem;
+	overflow: hidden;
+	box-shadow: 0 2.5rem 2.5rem 0.625rem hsla(210, 29%, 84%, 0.5);
+
+	&__content {
+		padding: 0 1.875rem 1.125rem;
+
+		h1 {
+			font-size: 1.25rem;
+			font-weight: 700;
+			letter-spacing: 0.016rem;
+			line-height: 130%;
+			color: $color-grey-900;
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			font-weight: 500;
+			line-height: 140%;
+			letter-spacing: 0.12%;
+			color: $color-grey-500;
+			margin-bottom: 3rem;
+		}
+
+		&-bottom {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			address {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				font-style: normal;
+
+				img {
+					max-width: 3rem;
+					max-height: 3rem;
+					border-radius: 50%;
+				}
+
+				div {
+					display: flex;
+					flex-direction: column;
+
+					span {
+						font-weight: 700;
+						line-height: 140%;
+						letter-spacing: 0.12%;
+						color: $color-grey-900;
+					}
+
+					time {
+						font-weight: 500;
+						line-height: 140%;
+						letter-spacing: 0.12%;
+						color: $color-grey-400;
+					}
+				}
+			}
+
+			button {
+				border: none;
+				border-radius: 50%;
+				width: 2rem;
+				height: 2rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: $color-grey-200;
+				cursor: pointer;
+			}
+		}
+	}
+
+	@include breakpointMobile(48rem) {
+		max-width: 38rem;
+		flex-direction: row;
+
+		figure {
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__content {
+			padding: 2.563rem 2.25rem 2.563rem 0;
+
+			p {
+				margin-bottom: 1.5rem;
+				max-width: 19.438rem;
+			}
+		}
+	}
+
+	@include breakpointMobile(80rem) {
+		max-width: 45.625rem;
+		gap: 2.5rem;
+
+		figure {
+			min-width: 285px;
+
+			img {
+				object-position: left;
+			}
+		}
+
+		&__content {
+			padding: 1.875rem 2.5rem 1.875rem 0;
+
+			p {
+				max-width: 22.813rem;
+			}
+		}
+	}
+}
