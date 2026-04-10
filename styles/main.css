@@ -102,6 +102,7 @@ main {
   margin-bottom: 3rem;
 }
 .articleCard__content-bottom {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,16 +144,25 @@ main {
   justify-content: center;
   background: hsl(210, 46%, 95%);
   cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+.articleCard__content-bottom button.active {
+  background: hsl(214, 17%, 51%);
+}
+.articleCard__content-bottom button.active path {
+  fill: white;
 }
 @media (min-width: 48rem) {
   .articleCard {
     max-width: 38rem;
     flex-direction: row;
+    overflow: visible;
   }
   .articleCard figure img {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+    border-radius: 0.625rem 0 0 0.625rem;
   }
   .articleCard__content {
     padding: 2.563rem 2.25rem 2.563rem 0;
@@ -180,4 +190,96 @@ main {
   .articleCard__content p {
     max-width: 22.813rem;
   }
+  .articleCard__content-bottom button:hover {
+    background: hsl(214, 17%, 51%);
+  }
+  .articleCard__content-bottom button:hover path {
+    fill: white;
+  }
+}
+
+.shareToast {
+  position: absolute;
+  top: 150%;
+  left: -1.875rem;
+  right: -1.875rem;
+  bottom: -1.125rem;
+  background: hsl(217, 19%, 35%);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.shareToast.active {
+  top: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.shareToast div {
+  display: flex;
+}
+.shareToast div span {
+  margin-right: 1.5rem;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 25%;
+  text-transform: uppercase;
+  color: hsl(212, 23%, 69%);
+}
+.shareToast div ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.shareToast button {
+  background: hsl(214, 17%, 51%);
+  cursor: pointer;
+}
+.shareToast button path {
+  fill: white;
+}
+@media (min-width: 48rem) {
+  .shareToast {
+    top: 0%;
+    left: auto;
+    bottom: auto;
+    right: -32.5%;
+    border-radius: 0.625rem;
+    z-index: 10;
+  }
+  .shareToast::after {
+    content: "";
+    position: absolute;
+    bottom: -20%;
+    left: 46%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: hsl(217, 19%, 35%);
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+  .shareToast button {
+    display: none;
+  }
+  .shareToast.active {
+    top: -160%;
+  }
+}
+@media (min-width: 80rem) {
+  .shareToast {
+    right: -27.5%;
+  }
+}
+
+footer {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+footer a {
+  color: hsl(214, 17%, 51%);
 }

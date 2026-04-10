@@ -1,0 +1,83 @@
+@use '../abstracts' as *;
+
+.shareToast {
+	position: absolute;
+	top: 150%;
+	left: -1.875rem;
+	right: -1.875rem;
+	bottom: -1.125rem;
+	background: $color-grey-900;
+	padding: 1rem 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.3s ease;
+
+	&.active {
+		top: 0;
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	div {
+		display: flex;
+
+		span {
+			margin-right: 1.5rem;
+			font-weight: 500;
+			line-height: 140%;
+			letter-spacing: 25%;
+			text-transform: uppercase;
+			color: $color-grey-400;
+		}
+
+		ul {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+	}
+	button {
+		background: $color-grey-500;
+		cursor: pointer;
+
+		path {
+			fill: white;
+		}
+	}
+
+	@include breakpointMobile(48rem) {
+		top: 0%;
+		left: auto;
+		bottom: auto;
+		right: -32.5%;
+		border-radius: 0.625rem;
+		z-index: 10;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -20%;
+			left: 46%;
+			width: 1.5rem;
+			height: 1.5rem;
+			background: $color-grey-900;
+			transform: rotate(45deg);
+			z-index: -1;
+		}
+
+		button {
+			display: none;
+		}
+
+		&.active {
+			top: -160%;
+		}
+	}
+
+	@include breakpointMobile(80rem) {
+		right: -27.5%;
+	}
+}

@@ -30,6 +30,7 @@
 		}
 
 		&-bottom {
+			position: relative;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -76,6 +77,15 @@
 				justify-content: center;
 				background: $color-grey-200;
 				cursor: pointer;
+				transition: all 0.15s ease-in-out;
+
+				&.active {
+					background: $color-grey-500;
+
+					path {
+						fill: white;
+					}
+				}
 			}
 		}
 	}
@@ -83,11 +93,13 @@
 	@include breakpointMobile(48rem) {
 		max-width: 38rem;
 		flex-direction: row;
+		overflow: visible;
 
 		figure {
 			img {
 				height: 100%;
 				object-fit: cover;
+				border-radius: 0.625rem 0 0 0.625rem;
 			}
 		}
 
@@ -118,6 +130,18 @@
 
 			p {
 				max-width: 22.813rem;
+			}
+
+			&-bottom {
+				button {
+					&:hover {
+						background: $color-grey-500;
+
+						path {
+							fill: white;
+						}
+					}
+				}
 			}
 		}
 	}
