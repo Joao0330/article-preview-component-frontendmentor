@@ -2,7 +2,7 @@
 
 .shareToast {
 	position: absolute;
-	top: 150%;
+	top: 0;
 	left: -1.875rem;
 	right: -1.875rem;
 	bottom: -1.125rem;
@@ -13,10 +13,13 @@
 	justify-content: space-between;
 	pointer-events: none;
 	opacity: 0;
-	transition: all 0.3s ease;
+	transform: translateY(150%);
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
 
 	&.active {
-		top: 0;
+		transform: translateY(0);
 		opacity: 1;
 		pointer-events: auto;
 	}
@@ -49,7 +52,7 @@
 	}
 
 	@include breakpointMobile(48rem) {
-		top: 0%;
+		transform: translateY(10%);
 		left: auto;
 		bottom: auto;
 		right: -32.5%;
@@ -73,7 +76,7 @@
 		}
 
 		&.active {
-			top: -160%;
+			transform: translateY(-160%);
 		}
 	}
 
